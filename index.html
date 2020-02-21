@@ -55,20 +55,22 @@
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFQH2KZ" height="0" width="0"
                 style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-        <p>Esto es un ejemplo de Analyticssss</p>
+        <p>Analytics event test</p>
 
-        <input type="text" name="numero" id="numero" placeholder="Ingresa un numero">
-        <button id="btn-data">Click añadir data</button>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre de usuario">
+        <button id="btn-data">Registrar</button>
     </body>
     <script>
         document.querySelector('#btn-data').addEventListener('click', () => {
-            let numero = parseInt(document.querySelector('#numero').value)
+            let nombre = document.querySelector('#nombre').value
 
-            dataLayer.push({
-                'event': 'removeFromCart',
-                'pagePostAuthor': 'Juan',
-                'click': numero
-            })
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'registrationComplete',
+                'registrationCountry': 'Mexico',
+                'plan': 'Premium',
+                'usuario': nombre
+            });
 
             alert('Data añadida')
         })
